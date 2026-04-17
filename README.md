@@ -22,12 +22,12 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 
 | KATEGORI | NAMA HALAMAN | LINK AKSES |
 | :--- | :--- | :--- |
-| **Admin** | Dashboard | [Klik di Sini](resources/views/admin/dashboard.blade.php) |
-| | Manajemen Event | [Klik di Sini](resources/views/admin/events.blade.php) |
-| | Laporan Transaksi | [Klik di Sini](resources/views/admin/transactions.blade.php) |
-| **User** | Beranda (Welcome) | [Klik di Sini](resources/views/welcome.blade.php) |
-| | Detail Event | [Klik di Sini](resources/views/event-detail.blade.php) |
-| | Checkout Tiket | [Klik di Sini](resources/views/checkout.blade.php) |
+| **Admin** | Dashboard | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+| | Manajemen Event | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/event) |
+| | Laporan Transaksi | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/transaksi) |
+| **User** | Beranda (Welcome) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| | Detail Event | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/detail-event) |
+| | Checkout Tiket | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/checkout) |
 
 ---
 
