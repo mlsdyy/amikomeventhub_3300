@@ -17,8 +17,11 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 * **Prodi:** Sistem Informasi
 * **NIM:** 24.12.3300 <br>
 ---
+### Daftar Tugas 1
 
-### Daftar Link Halaman (Tugas 2)
+https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
+---
+### Daftar Tugas 2
 
 | KATEGORI | NAMA HALAMAN | LINK AKSES |
 | :--- | :--- | :--- |
@@ -28,6 +31,6 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 | **User** | Beranda (Welcome) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
 | | Detail Event | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/event/detail) |
 | | Checkout Tiket | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/checkout) |
-
 ---
-
+### Daftar Tugas 3
+| **Database**| **Tambah Migration** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/database/migrations) |
