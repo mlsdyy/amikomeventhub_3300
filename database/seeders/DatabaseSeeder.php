@@ -58,19 +58,19 @@ class DatabaseSeeder extends Seeder
             ]);
 
             \App\Models\Event::create([
-'category_id' => $category->id,
-'title' => 'AI & FUTURE TECH SUMMIT 2026',
-'description' => 'Jelajahi tren terkini dalam kecerdasan buatan dan
+            'category_id' => $category->id,
+            'title' => 'AI & FUTURE TECH SUMMIT 2026',
+            'description' => 'Jelajahi tren terkini dalam kecerdasan buatan dan
 
-teknologi masa depan bersama para ahli di bidangnya.',
+            teknologi masa depan bersama para ahli di bidangnya.',
 
-'date' => '2026-05-01 13:00:00',
-'location' => 'Cinema Unit 6',
-'price' => 50000,
-'stock' => 100,
-'poster_path' => 'posters/event-3.png',
-]);
-}
-}
+            'date' => '2026-05-01 13:00:00',
+            'location' => 'Cinema Unit 6',
+            'price' => 50000,
+            'stock' => 100,
+            'poster_path' => 'posters/event-3.png',
+        ]);
+        }
+        }
 
        
