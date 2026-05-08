@@ -33,4 +33,4 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 | | Checkout Tiket | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/checkout) |
 ---
 ### Daftar Tugas 3
-| **Database** | 🗄️ Tambah Migration (Tugas 3) | [Klik di Sini](https://github.com/mlsdyy/amikomeventhunb_3300/tree/main/database/migrations) |
+| **Database**| **Tambah Migration** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/database/migrations) |
