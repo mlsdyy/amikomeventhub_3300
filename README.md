@@ -17,6 +17,8 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 * **Prodi:** Sistem Informasi
 * **NIM:** 24.12.3300 <br>
 ---
+### Daftar Link Halaman (Tugas 1)
+https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 
 ### Daftar Link Halaman (Tugas 2)
 
