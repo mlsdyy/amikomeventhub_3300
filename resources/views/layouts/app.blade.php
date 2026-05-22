@@ -21,14 +21,14 @@
             <span class="text-xl font-bold tracking-tighter text-slate-800">AmikomEventHub</span>
         </div>
 
-        <div class="hidden md:flex gap-10 font-bold text-sm tracking-tight">
+       <div class="hidden md:flex gap-10 font-bold text-sm tracking-tight ms-auto">
             <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-indigo-600' : 'text-slate-600 hover:text-indigo-600' }} transition">
                 Jelajahi
             </a>
             <a href="{{ route('katalog') }}" class="{{ request()->routeIs('katalog') ? 'text-indigo-600' : 'text-slate-600 hover:text-indigo-600' }} transition">
                 Kategori
             </a>
-            <a href="#" class="text-slate-800 cursor-default">
+            <a href="#" class="text-slate-600 hover:text-indigo-600 transition">
                 Tentang Kami
             </a>
         </div>

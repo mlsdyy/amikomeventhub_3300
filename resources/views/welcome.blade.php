@@ -22,22 +22,18 @@
 
 <body class="bg-slate-50 text-slate-900">
 
-    <nav
-        class="glass sticky top-8 z-40 mx-4 mt-4 px-6 py-4 rounded-2xl border border-white/20 shadow-lg flex justify-between items-center">
+    <nav class="glass sticky top-8 z-40 mx-4 mt-4 px-6 py-4 rounded-2xl border border-white/20 shadow-lg flex justify-between items-center">
         <div class="flex items-center gap-2">
-            <div
-                class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                AH</div>
+            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                AH
+            </div>
             <span class="text-xl font-bold tracking-tight">AmikomEventHub</span>
         </div>
-        <div class="hidden md:flex gap-8 font-medium">
+
+        <div class="hidden md:flex gap-8 font-medium ms-auto">
             <a href="{{ route('home') }}" class="text-indigo-600">Jelajahi</a>
             <a href="#" class="hover:text-indigo-600 transition">Kategori</a>
             <a href="#" class="hover:text-indigo-600 transition">Tentang Kami</a>
-        </div>
-        <div class="flex gap-3">
-            <a href="{{ route('admin.dashboard') }}"
-                class="px-5 py-2.5 bg-indigo-600 text-white rounded-xl font-semibold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition">Dashboard Admin</a>
         </div>
     </nav>
 
