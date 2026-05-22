@@ -34,3 +34,9 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 ---
 ### Daftar Tugas 3
 | **Database**| **Tambah Migration** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/database/migrations) |
+
+---
+### Daftar Tugas 4
+| **Tugas 4** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/app/Http/Controllers/Admin) |
+[Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
+
