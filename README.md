@@ -38,3 +38,5 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 ---
 ### Daftar Tugas 4
 | **Tugas 4** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/app/Http/Controllers/Admin) |
+| **Tugas 4** | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
+
