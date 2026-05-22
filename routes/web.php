@@ -43,3 +43,24 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
      Route::resource('events', EventAdminController::class);
 });
+
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/auto-benerin-db', function () {
+    try {
+        // 1. Bikin file database kalau belum ada di server
+        $dbPath = database_path('database.sqlite');
+        if (!file_exists($dbPath)) {
+            file_put_contents($dbPath, '');
+        }
+        
+        // 2. Jalankan migrasi, seeder, dan link storage otomatis
+        Artisan::call('migrate --force');
+        Artisan::call('db:seed --force');
+        Artisan::call('storage:link');
+        
+        return "Database berhasil diperbaiki otomatis! Silakan kembali ke halaman Kelola Event.";
+    } catch (\Exception $e) {
+        return "Gagal: " . $e->getMessage();
+    }
+});
