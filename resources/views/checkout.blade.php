@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - AmikomEventHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         body {
@@ -20,11 +20,11 @@
 
     <main class="max-w-3xl mx-auto px-6 py-20 text-left">
         <div class="mb-12">
-            <a href="{{ route('event.detail') }}" class="text-indigo-600 font-bold flex items-center gap-2 mb-6 hover:underline">
+            <a href="{{ url('/') }}" class="text-indigo-600 font-bold flex items-center gap-2 mb-6 hover:underline">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
-                Kembali ke Event
+                Kembali ke Home
             </a>
             <h1 class="text-4xl font-extrabold tracking-tight">Checkout</h1>
             <p class="text-slate-500 mt-2 font-medium">Lengkapi data Anda untuk mendapatkan tiket resmi.</p>
@@ -111,12 +111,12 @@
                 <p class="text-[10px] text-slate-400 font-mono font-bold">#TRX-99210-AMK</p>
 
                 <div class="mt-8 space-y-4">
-                    <button onclick="window.location.href='{{ route('ticket') }}'"
+                    <button onclick="window.location.href='{{ url('/ticket') }}'"
                         class="w-full py-4 border-2 border-indigo-50 bg-indigo-50/30 rounded-2xl flex justify-between items-center px-6 hover:border-indigo-600 transition-all group">
                         <span class="font-black text-indigo-900 group-hover:text-indigo-600">GoPay / QRIS</span>
                         <span class="text-indigo-400 font-bold">→</span>
                     </button>
-                    <button
+                    <button type="button"
                         class="w-full py-4 border-2 border-slate-100 rounded-2xl flex justify-between items-center px-6 opacity-40 cursor-not-allowed">
                         <span class="font-bold text-slate-400">Transfer Bank</span>
                         <span class="text-slate-300">→</span>
