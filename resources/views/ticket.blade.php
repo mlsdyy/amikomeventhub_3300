@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Ticket - AmikomEventHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         body {
@@ -89,8 +89,11 @@
                     class="w-full py-4 bg-indigo-600 text-white rounded-2xl font-black shadow-xl shadow-indigo-100 hover:bg-indigo-700 transition-all active:scale-95">
                     Cetak / Simpan PDF
                 </button>
+                
                 <a href="{{ route('home') }}"
-                    class="block text-center py-2 text-slate-400 font-bold hover:text-indigo-600 transition-colors uppercase text-xs tracking-widest">Kembali ke Beranda</a>
+                    class="block text-center py-2 text-slate-400 font-bold hover:text-indigo-600 transition-colors uppercase text-xs tracking-widest">
+                    Kembali ke Beranda
+                </a>
             </div>
         </div>
     </div>

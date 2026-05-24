@@ -9,26 +9,31 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
 
 // ==========================================
-//               HALAMAN USER  
+//               HALAMAN USER  
 // ==========================================
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/event/detail', function () {
-    return view('event-detail');
-})->name('event.detail');
+// Rute detail menerima parameter {id} dan terhubung ke HomeController
+Route::get('/event/detail/{id}', [HomeController::class, 'detail'])->name('event.detail');
 
+// Rute Checkout biasa
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
+// FIX TOTAL: Mendaftarkan rute ticket agar bisa diakses baik huruf kecil maupun besar
 Route::get('/ticket', function () {
     return view('ticket');
 })->name('ticket');
 
+Route::get('/Ticket', function () {
+    return view('ticket');
+});
+
 
 // ==========================================
-//               HALAMAN ADMIN 
+//               HALAMAN ADMIN 
 // ==========================================
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -51,7 +56,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 
 // ==========================================
-//             FITUR AUTO FIX DB  
+//             FITUR AUTO FIX DB  
 // ==========================================
 
 Route::get('/auto-benerin-db', function () {

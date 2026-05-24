@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Event - AmikomEventHub</title>
+    <title>{{ $event->title }} - AmikomEventHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
         body {
@@ -30,7 +30,7 @@
             <span class="text-xl font-bold tracking-tight">AmikomEventHub</span>
         </a>
         <div class="flex gap-4">
-            <button class="px-4 py-2 text-slate-600 font-medium">Cari Event</button>
+            <a href="{{ route('home') }}" class="px-4 py-2 text-indigo-600 font-medium">Kembali</a>
             <button class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,16 +43,21 @@
     <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div class="lg:col-span-1">
             <div class="sticky top-32">
-                <img src="{{ asset('assets/concert.png') }}" alt="Concert Poster"
-                    class="w-full rounded-[2.5rem] shadow-2xl border-8 border-white">
+                @php
+                    $imagePath = asset('storage/' . $event->poster_path);
+                @endphp
+                <img src="{{ $imagePath }}" alt="{{ $event->title }}"
+                    class="w-full rounded-[2.5rem] shadow-2xl border-8 border-white object-cover aspect-[3/4]"
+                    onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400?text=Poster+Not+Found';">
+                
                 <div class="mt-8 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
                     <h4 class="font-bold mb-4">Penyelenggara</h4>
                     <div class="flex items-center gap-4">
                         <div
-                            class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold">
-                            AB</div>
+                            class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold uppercase">
+                            {{ substr($event->organizer ?? 'AE', 0, 2) }}</div>
                         <div class="text-left">
-                            <p class="font-bold text-slate-800">ABP Productions</p>
+                            <p class="font-bold text-slate-800">{{ $event->organizer ?? 'Amikom Event Organizer' }}</p>
                             <p class="text-xs text-slate-500">Verified Organizer</p>
                         </div>
                     </div>
@@ -63,10 +68,11 @@
         <div class="lg:col-span-2 space-y-12 text-left">
             <div class="space-y-4">
                 <span
-                    class="px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold uppercase tracking-wider">Music
-                    Festival</span>
-                <h1 class="text-4xl md:text-5xl font-black leading-tight">Jazz Night 2024: A Celebration of Rhythm &
-                    Melody</h1>
+                    class="px-4 py-1.5 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold uppercase tracking-wider">
+                    {{ $event->category->name ?? 'Event Hub' }}
+                </span>
+                <h1 class="text-4xl md:text-5xl font-black leading-tight">{{ $event->title }}</h1>
+                
                 <div class="flex flex-wrap gap-6 text-slate-500 font-medium">
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,7 +80,7 @@
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                             </path>
                         </svg>
-                        <span>Saturday, 16 Nov 2024</span>
+                        <span>{{ \Carbon\Carbon::parse($event->date)->translatedFormat('l, d F Y') }}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,21 +90,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
-                        <span>The Blue Note Lounge, Metropolis</span>
+                        <span>{{ $event->location ?? 'Universitas Amikom Yogyakarta' }}</span>
                     </div>
                 </div>
             </div>
 
             <div class="prose prose-slate max-w-none">
                 <h3 class="text-2xl font-bold mb-4">Deskripsi Event</h3>
-                <p class="text-lg text-slate-600 leading-relaxed">
-                    Nikmati malam yang tak terlupakan dengan alunan jazz dari musisi internasional. Jazz Night 2024
-                    hadir untuk membawa Anda ke dalam perjalanan melodi yang menenangkan dan ritme yang menggugah jiwa.
-                </p>
-                <p class="text-lg text-slate-600 leading-relaxed mt-4">
-                    Tahun ini kami menghadirkan <strong>The Jazz Collective</strong>, <strong>Luna Vance</strong>, dan
-                    artis favorit lainnya. Acara ini juga dilengkapi dengan food stall premium dan area networking yang
-                    nyaman.
+                <p class="text-lg text-slate-600 leading-relaxed whitespace-pre-line">
+                    {{ $event->description ?? 'Belum ada deskripsi lengkap untuk event ini.' }}
                 </p>
             </div>
 
@@ -107,21 +107,23 @@
                 <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div class="text-left w-full md:w-auto">
                         <p class="text-indigo-200 font-bold uppercase tracking-widest text-sm mb-2">Harga Tiket</p>
-                        <h2 class="text-5xl font-black">Rp 150.000 <span class="text-lg font-medium text-indigo-200">/
-                                orang</span></h2>
+                        <h2 class="text-5xl font-black">
+                            {{ $event->price == 0 ? 'Gratis' : 'Rp ' . number_format($event->price, 0, ',', '.') }} 
+                            <span class="text-lg font-medium text-indigo-200">/ orang</span>
+                        </h2>
                         <p class="mt-4 text-indigo-100 flex items-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            Sisa stok: <span class="font-bold underline">42 Tiket lagi!</span>
+                            Sisa stok: <span class="font-bold underline">{{ $event->stock ?? 'Kuota Terbatas' }} Tiket lagi!</span>
                         </p>
                     </div>
                     <div>
-                        <a href="{{ route('checkout') }}"
-                            class="inline-block px-10 py-5 bg-white text-indigo-600 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl">
-                            Pesan Sekarang
-                        </a>
+                        <a href="{{ url('/checkout') }}"
+                        class="inline-block px-10 py-5 bg-white text-indigo-600 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl">
+                        Pesan Sekarang
+                    </a>
                     </div>
                 </div>
                 <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-white opacity-10 rounded-full"></div>
