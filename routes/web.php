@@ -1,16 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
 
-// --- HALAMAN USER  ---
+// ==========================================
+//               HALAMAN USER  
+// ==========================================
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-
 
 Route::get('/event/detail', function () {
     return view('event-detail');
@@ -25,26 +27,32 @@ Route::get('/ticket', function () {
 })->name('ticket');
 
 
-// --- HALAMAN ADMIN ---
+// ==========================================
+//               HALAMAN ADMIN 
+// ==========================================
 
 Route::prefix('admin')->name('admin.')->group(function () {
    
+    // Dashboard Admin
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
-    Route::get('/events', function () {
-        return view('admin.events');
-    })->name('events.index');
-
+    // Kelola Transaksi
     Route::get('/transactions', function () {
         return view('admin.transactions');
     })->name('transactions.index');
 
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    // Kelola Event (Menggunakan Resource CRUD bawaan praktikum)
+    Route::resource('events', EventAdminController::class);
 
-     Route::resource('events', EventAdminController::class);
+    // REVISI UTS: Mengubah Kategori & Partner menjadi Resource CRUD penuh agar fungsi simpan/edit/hapus jalan
+    Route::resource('categories', CategoryController::class);
+    Route::resource('partners', PartnerController::class);
 });
 
-use Illuminate\Support\Facades\Artisan;
+
+// ==========================================
+//             FITUR AUTO FIX DB  
+// ==========================================
 
 Route::get('/auto-benerin-db', function () {
     try {
