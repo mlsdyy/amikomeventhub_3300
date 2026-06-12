@@ -32,7 +32,7 @@
 
         <div class="grid grid-cols-1 gap-8">
             <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-                <h3 class="text-xl font-bold mb-6 border-b pb-4 uppercase tracking-wider text-slate-400 text-xs">Pesanan Anda</h3>
+                <h3 class="text-xl font-bold mb-6 border-b pb-4 uppercase tracking-wider text-slate-400">Pesanan Anda</h3>
                 <div class="flex gap-6 items-start">
                     <img src="{{ asset('assets/concert.png') }}" alt="Event" class="w-24 h-24 rounded-2xl object-cover shadow-md">
                     <div>
@@ -111,8 +111,7 @@
                 <p class="text-[10px] text-slate-400 font-mono font-bold">#TRX-99210-AMK</p>
 
                 <div class="mt-8 space-y-4">
-                    <button onclick="window.location.href='{{ url('/ticket') }}'"
-                        class="w-full py-4 border-2 border-indigo-50 bg-indigo-50/30 rounded-2xl flex justify-between items-center px-6 hover:border-indigo-600 transition-all group">
+                    <button id="btn-gopay" class="w-full py-4 border-2 border-indigo-50 bg-indigo-50/30 rounded-2xl flex justify-between items-center px-6 hover:border-indigo-600 transition-all group">
                         <span class="font-black text-indigo-900 group-hover:text-indigo-600">GoPay / QRIS</span>
                         <span class="text-indigo-400 font-bold">→</span>
                     </button>
@@ -146,6 +145,10 @@
             document.getElementById('midtrans-overlay').classList.remove('flex');
         }
 
+        // Jalur pindah halaman tiket resmi tanpa eror tanda petik
+        document.getElementById('btn-gopay').addEventListener('click', function() {
+            window.location.href = "{{ url('ticket') }}";
+        });
     </script>
 
     <style>

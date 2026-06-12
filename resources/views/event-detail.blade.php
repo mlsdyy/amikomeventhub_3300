@@ -47,7 +47,7 @@
                     $imagePath = asset('storage/' . $event->poster_path);
                 @endphp
                 <img src="{{ $imagePath }}" alt="{{ $event->title }}"
-                    class="w-full rounded-[2.5rem] shadow-2xl border-8 border-white object-cover aspect-[3/4]"
+                    class="w-full rounded-[2.5rem] shadow-2xl border-8 border-white object-cover aspect-3/4"
                     onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400?text=Poster+Not+Found';">
                 
                 <div class="mt-8 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
