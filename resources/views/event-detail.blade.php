@@ -120,10 +120,10 @@
                         </p>
                     </div>
                     <div>
-                        <a href="{{ url('/checkout') }}"
-                        class="inline-block px-10 py-5 bg-white text-indigo-600 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl">
-                        Pesan Sekarang
-                    </a>
+                        <a href="{{ route('checkout.create', $event->id) }}"
+                            class="inline-block px-10 py-5 bg-white text-indigo-600 rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl">
+                            Pesan Sekarang
+                        </a>
                     </div>
                 </div>
                 <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-white opacity-10 rounded-full"></div>

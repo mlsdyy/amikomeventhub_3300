@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmikomEventHub - Discover Amazing Events</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
@@ -25,7 +25,7 @@
             <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-indigo-600' : 'text-slate-600 hover:text-indigo-600' }} transition">
                 Jelajahi
             </a>
-            <a href="{{ route('katalog') }}" class="{{ request()->routeIs('katalog') ? 'text-indigo-600' : 'text-slate-600 hover:text-indigo-600' }} transition">
+            <a href="#" class="text-slate-600 hover:text-indigo-600 transition">
                 Kategori
             </a>
             <a href="#" class="text-slate-600 hover:text-indigo-600 transition">
@@ -51,7 +51,7 @@
                 <h4 class="text-white font-bold mb-6 italic text-lg">Navigasi</h4>
                 <ul class="space-y-4 text-indigo-300 font-medium">
                     <li><a href="{{ route('home') }}" class="hover:text-white transition">Jelajahi</a></li>
-                    <li><a href="{{ route('katalog') }}" class="hover:text-white transition">Kategori</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kategori</a></li>
                 </ul>
             </div>
             <div>

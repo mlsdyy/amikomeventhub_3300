@@ -32,7 +32,9 @@
         <div class="bg-white text-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
             <div class="p-8 bg-indigo-50 border-b-4 border-dashed border-indigo-100 text-center relative">
                 <p class="text-indigo-600 font-bold uppercase tracking-widest text-xs mb-2">E-Ticket Resmi</p>
-                <h2 class="text-2xl font-black leading-tight text-slate-800">Jazz Night 2024: A Celebration</h2>
+                <h2 class="text-2xl font-black leading-tight text-slate-800">
+                    {{ $transaction->event->title ?? 'Nama Event' }}
+                </h2>
 
                 <div class="absolute -left-4 -bottom-4 w-8 h-8 bg-indigo-600 rounded-full"></div>
                 <div class="absolute -right-4 -bottom-4 w-8 h-8 bg-indigo-600 rounded-full"></div>
@@ -42,19 +44,23 @@
                 <div class="grid grid-cols-2 gap-6 text-left">
                     <div>
                         <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Nama Pembeli</p>
-                        <p class="font-bold text-lg text-slate-800">Donni Prabowo</p>
+                        <p class="font-bold text-lg text-slate-800">{{ $transaction->customer_name }}</p>
                     </div>
                     <div>
                         <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Tanggal & Waktu</p>
-                        <p class="font-bold text-lg text-slate-800">16 Nov, 19:30</p>
+                        <p class="font-bold text-base text-slate-800">
+                            {{ $transaction->event && $transaction->event->date ? \Carbon\Carbon::parse($transaction->event->date)->translatedFormat('d M, H:i') : '-' }}
+                        </p>
                     </div>
                     <div>
                         <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Order ID</p>
-                        <p class="font-bold text-slate-800 uppercase">#TRX-99210</p>
+                        <p class="font-bold text-indigo-600 uppercase tracking-wide">#{{ $transaction->order_id }}</p>
                     </div>
                     <div>
                         <p class="text-slate-400 text-[10px] font-bold uppercase mb-1 tracking-widest">Lokasi</p>
-                        <p class="font-bold text-slate-800">Blue Note Lounge</p>
+                        <p class="font-bold text-slate-800 text-sm leading-tight">
+                            {{ $transaction->event->location ?? 'Universitas Amikom' }}
+                        </p>
                     </div>
                 </div>
 
@@ -80,7 +86,7 @@
                             <div class="w-1/4 h-1/4 bg-slate-900"></div>
                         </div>
                     </div>
-                    <p class="mt-4 font-mono font-black text-indigo-600 tracking-wider">TKT-001293848</p>
+                    <p class="mt-4 font-mono font-black text-indigo-600 tracking-wider">TKT-{{ str_replace('TRX-', '', $transaction->order_id) }}</p>
                 </div>
             </div>
 
