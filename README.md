@@ -7,7 +7,7 @@
   [![Tailwind CSS](https://img.shields.io/badge/TAILWIND_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
   [![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://javascript.com)
 
-https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
+  https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 </div>
 
 ---
@@ -15,42 +15,17 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 ### Identitas Mahasiswa
 * **Nama:** Melsindy Aulia Febiola
 * **Prodi:** Sistem Informasi
-* **NIM:** 24.12.3300 <br>
----
-### Daftar Tugas 1
-
-https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
----
-### Daftar Tugas 2
-
-| KATEGORI | NAMA HALAMAN | LINK AKSES |
-| :--- | :--- | :--- |
-| **Admin** | Dashboard | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin) |
-| | Manajemen Event | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
-| | Laporan Transaksi | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/transactions) |
-| **User** | Beranda (Welcome) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
-| | Detail Event | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/event/detail) |
-| | Checkout Tiket | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/checkout) |
----
-### Daftar Tugas 3
-| **Database**| **Tambah Migration** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/database/migrations) |
+* **NIM:** 24.12.3300
 
 ---
-### Daftar Tugas 4
-| **Tugas 4** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/app/Http/Controllers/Admin) |
-[Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
 
-| Tugas 4 | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+### Tugas & Praktikum
 
-### Daftar UTS (Ujian Tengah Semester)
-| UTS | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
-| • Fitur Utama: | Beranda / Welcome Page | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
-| | Manajemen Event | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
-| | Manajemen Partner | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
-| | Kategori | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
-
-### Daftar Tugas 8
-| Tugas 8 - Authentikasi & Middleware | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/login) |
-| • Fitur Utama: | Halaman Login Admin | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/login) |
-| | Proteksi Rute Dashboard | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
-| | Fitur Logout | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+| No | Tugas / Project | Link Repository | Link Website |
+| :---: | :--- | :--- | :--- |
+| 1 | Tugas 1 - Setup Awal & Landing Page | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| 2 | Tugas 2 - Routing & Mockup View (Dashboard, Events, Transactions) | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| 3 | Tugas 3 - Database & Migration Setup | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/database/migrations) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| 4 | Tugas 4 - Controller & CRUD Basic Admin | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/app/Http/Controllers/Admin) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
+| 5 | **UTS - Manajemen Event Hub** (Beranda, Manajemen Event, Partner, Kategori) | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| 6 | **Tugas 8 - Authentikasi & Middleware** (Login Admin, Proteksi Rute Dashboard, Fitur Logout) | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik di Sini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/login) |
