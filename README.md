@@ -40,3 +40,17 @@ https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/
 | **Tugas 4** | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300/tree/main/app/Http/Controllers/Admin) |
 [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/events) |
 
+| Tugas 4 | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+
+### Daftar UTS (Ujian Tengah Semester)
+| UTS | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| • Fitur Utama: | Beranda / Welcome Page | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/) |
+| | Manajemen Event | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+| | Manajemen Partner | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+| | Kategori | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+
+### Daftar Tugas 8
+| Tugas 8 - Authentikasi & Middleware | [Lihat Code](https://github.com/mlsdyy/amikomeventhub_3300) | [Klik disini](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/login) |
+| • Fitur Utama: | Halaman Login Admin | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/login) |
+| | Proteksi Rute Dashboard | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
+| | Fitur Logout | [Buka Halaman](https://amikomeventhub-3300-main-myrwmo.free.laravel.cloud/admin/dashboard) |
