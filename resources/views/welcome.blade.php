@@ -94,7 +94,12 @@
                     <div class="relative w-full aspect-[3/4] bg-slate-100 overflow-hidden">
                         
                         @php
-                            $imagePath = asset('storage/' . $event->poster_path);
+                            // Logika dinamis VS Code: Mendukung panggil dari images/ (InfinityFree) maupun storage/ (Lokal & Laravel Cloud)
+                            if (\Illuminate\Support\Str::startsWith($event->poster_path, 'images/')) {
+                                $imagePath = asset($event->poster_path);
+                            } else {
+                                $imagePath = asset('storage/' . $event->poster_path);
+                            }
                         @endphp
 
                         <img src="{{ $imagePath }}" 
