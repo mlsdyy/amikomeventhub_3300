@@ -58,7 +58,8 @@
             <div class="absolute -top-10 -left-10 w-64 h-64 bg-indigo-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
             <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
             
-            <img src="{{ asset('assets/concert.png') }}" alt="Concert" class="rounded-[2rem] shadow-2xl relative z-10 w-full object-cover aspect-[4/5] object-center" onerror="this.src='https://via.placeholder.com/500x600?text=EventHub'">
+            <!-- Beres diubah: rounded-4xl dan aspect-4/5 -->
+            <img src="{{ asset('assets/concert.png') }}" alt="Concert" class="rounded-4xl shadow-2xl relative z-10 w-full object-cover aspect-4/5 object-center" onerror="this.src='https://via.placeholder.com/500x600?text=EventHub'">
 
             <div class="absolute -bottom-6 -left-6 glass p-6 rounded-2xl shadow-xl z-20 border border-white">
                 <div class="flex items-center gap-4">
@@ -91,10 +92,10 @@
             @forelse($events as $event)
                 <div class="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col">
                     
-                    <div class="relative w-full aspect-[3/4] bg-slate-100 overflow-hidden">
+                    <!-- Beres diubah: aspect-3/4 -->
+                    <div class="relative w-full aspect-3/4 bg-slate-100 overflow-hidden">
                         
                         @php
-                            // Logika dinamis VS Code: Mendukung panggil dari images/ (InfinityFree) maupun storage/ (Lokal & Laravel Cloud)
                             if (\Illuminate\Support\Str::startsWith($event->poster_path, 'images/')) {
                                 $imagePath = asset($event->poster_path);
                             } else {
@@ -163,9 +164,10 @@
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">Partner & Resmi Sponsor</h2>
                 <p class="text-slate-500 font-medium mb-8">Aplikasi web AmikomEventHub didukung penuh oleh jajaran partner terbaik kami.</p>
                 
+                <!-- Beres diubah: rounded-4xl -->
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     @forelse($partners as $partner)
-                        <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:shadow-md transition">
+                        <div class="bg-white p-6 rounded-4xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:shadow-md transition">
                             <img src="{{ $partner->logo_url }}" alt="Logo {{ $partner->name }}" class="w-16 h-16 object-contain p-1" onerror="this.src='https://via.placeholder.com/100?text=No+Logo'">
                             <span class="text-xs font-black text-slate-800 uppercase tracking-tight text-center">{{ $partner->name }}</span>
                         </div>

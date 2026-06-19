@@ -44,10 +44,17 @@
         <div class="lg:col-span-1">
             <div class="sticky top-32">
                 @php
-                    $imagePath = asset('storage/' . $event->poster_path);
+                    // Jalur gambar dinamis biar aman di lokal, laravel cloud, maupun infinityfree
+                    if (\Illuminate\Support\Str::startsWith($event->poster_path, 'images/')) {
+                        $imagePath = asset($event->poster_path);
+                    } else {
+                        $imagePath = asset('storage/' . $event->poster_path);
+                    }
                 @endphp
+                
+                <!-- Diubah ke rounded-4xl sesuai saran canonical class -->
                 <img src="{{ $imagePath }}" alt="{{ $event->title }}"
-                    class="w-full rounded-[2.5rem] shadow-2xl border-8 border-white object-cover aspect-3/4"
+                    class="w-full rounded-4xl shadow-2xl border-8 border-white object-cover aspect-3/4"
                     onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400?text=Poster+Not+Found';">
                 
                 <div class="mt-8 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
@@ -102,8 +109,9 @@
                 </p>
             </div>
 
+            <!-- Diubah ke rounded-4xl -->
             <div
-                class="bg-indigo-600 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl shadow-indigo-200 relative overflow-hidden">
+                class="bg-indigo-600 rounded-4xl p-8 md:p-12 text-white shadow-2xl shadow-indigo-200 relative overflow-hidden">
                 <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div class="text-left w-full md:w-auto">
                         <p class="text-indigo-200 font-bold uppercase tracking-widest text-sm mb-2">Harga Tiket</p>
