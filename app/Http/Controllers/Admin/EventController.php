@@ -36,8 +36,11 @@ class EventController extends Controller
             $file = $request->file('poster');
             $nama_file = time() . "_" . $file->getClientOriginalName();
             
-            // Pindahkan file fisik langsung ke folder public/images/posters
-            $file->move(public_path('images/posters'), $nama_file); 
+            // Mengatur jalur penyimpanan dinamis 
+            $target_path = is_dir(base_path('../images')) ? base_path('../images/posters') : public_path('images/posters');
+            
+    
+            $file->move($target_path, $nama_file); 
             
             // Simpan path bersih ini ke database
             $data['poster_path'] = 'images/posters/' . $nama_file;
@@ -65,16 +68,21 @@ class EventController extends Controller
         ]);
 
         if ($request->hasFile('poster')) {
-            // Hapus poster lama dari folder public jika ada
-            if ($event->poster_path && file_exists(public_path($event->poster_path))) {
-                unlink(public_path($event->poster_path));
+            // Tentukan jalur folder lama & baru secara dinamis
+            $is_infinity = is_dir(base_path('../images'));
+            $old_file_path = $is_infinity ? base_path('../' . $event->poster_path) : public_path($event->poster_path);
+            $target_path = $is_infinity ? base_path('../images/posters') : public_path('images/posters');
+
+            // Hapus poster lama jika filenya ada
+            if ($event->poster_path && file_exists($old_file_path)) {
+                unlink($old_file_path);
             }
 
             $file = $request->file('poster');
             $nama_file = time() . "_" . $file->getClientOriginalName();
             
-            // Pindahkan file baru langsung ke folder public/images/posters
-            $file->move(public_path('images/posters'), $nama_file); 
+            // Pindahkan file baru
+            $file->move($target_path, $nama_file); 
             
             $data['poster_path'] = 'images/posters/' . $nama_file;
         }
@@ -84,9 +92,13 @@ class EventController extends Controller
     }
 
     public function destroy(Event $event) {
-        if ($event->poster_path && file_exists(public_path($event->poster_path))) {
-            unlink(public_path($event->poster_path));
+        $is_infinity = is_dir(base_path('../images'));
+        $file_path = $is_infinity ? base_path('../' . $event->poster_path) : public_path($event->poster_path);
+
+        if ($event->poster_path && file_exists($file_path)) {
+            unlink($file_path);
         }
+        
         $event->delete();
         return redirect()->route('admin.events.index')->with('success', 'Event berhasil dihapus.');
     }
