@@ -18,6 +18,12 @@ Route::get('/event/detail/{id}', [HomeController::class, 'detail'])->name('event
 Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
+// ⭐ TAMBAHAN PERTEMUAN 11: Rute Halaman Pembayaran Snap Midtrans
+Route::get('/payment/{order_id}', [CheckoutController::class, 'payment'])->name('checkout.payment');
+
+// ⭐ TAMBAHAN BARU PERTEMUAN 11: Rute Halaman Sukses Transaksi
+Route::get('/success/{order_id}', [CheckoutController::class, 'success'])->name('checkout.success');
+
 // 🛠️ REVISI: Rute tiket diubah menjadi dinamis membawa order_id dari database
 Route::get('/ticket/{order_id}', function ($order_id) {
     $transaction = \App\Models\Transaction::with('event')->where('order_id', $order_id)->firstOrFail();

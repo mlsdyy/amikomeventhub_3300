@@ -12,7 +12,7 @@
             <p class="text-xs text-slate-400 font-bold italic">Penyelenggara Utama</p>
         </div>
         <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border flex items-center justify-center p-1">
-            <img src="https://ui-avatars.com/api/?name=Admin+Super&background=6366f1&color=fff" class="rounded-xl" alt="Avatar">
+            <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name ?? 'Admin Super') }}&background=6366f1&color=fff" class="rounded-xl" alt="Avatar">
         </div>
     </div>
 </header>
@@ -25,7 +25,7 @@
             </svg>
         </div>
         <p class="text-slate-400 text-sm font-bold uppercase mb-1 tracking-widest">Total Pendapatan</p>
-        <h3 class="text-2xl font-black text-indigo-600">Rp 12.450.000</h3>
+        <h3 class="text-2xl font-black text-indigo-600">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</h3>
     </div>
     
     <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
@@ -35,7 +35,7 @@
             </svg>
         </div>
         <p class="text-slate-400 text-sm font-bold uppercase mb-1 tracking-widest">Tiket Terjual</p>
-        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">1.284</h3>
+        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">{{ number_format($ticketsSold, 0, ',', '.') }}</h3>
     </div>
 
     <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
@@ -45,7 +45,7 @@
             </svg>
         </div>
         <p class="text-slate-400 text-sm font-bold uppercase mb-1 tracking-widest">Event Aktif</p>
-        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">8 Event</h3>
+        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">{{ $activeEvents }} Event</h3>
     </div>
 
     <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition">
@@ -55,14 +55,14 @@
             </svg>
         </div>
         <p class="text-slate-400 text-sm font-bold uppercase mb-1 tracking-widest">Pesanan Pending</p>
-        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">12 Pesanan</h3>
+        <h3 class="text-2xl font-black text-slate-900 tracking-tighter">{{ $pendingOrders }} Pesanan</h3>
     </div>
 </div>
 
 <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden text-left">
     <div class="p-8 border-b flex justify-between items-center">
         <h3 class="font-black text-xl italic uppercase tracking-tighter">Transaksi Terakhir</h3>
-        <a href="{{ route('admin.transactions.index') }}" class="text-indigo-600 font-bold hover:underline transition">Lihat Semua</a>
+        <a href="{{ route('admin.transactions.index') }}" class="text-indigo-600 font-bold hover:underline transition">Look at All</a>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
@@ -75,39 +75,29 @@
                 </tr>
             </thead>
             <tbody class="divide-y border-t text-left">
+                @forelse($recentTransactions as $trx)
                 <tr class="hover:bg-slate-50 transition">
                     <td class="px-8 py-6">
-                        <p class="font-bold uppercase tracking-wide text-sm text-slate-800">Donni Prabowo</p>
-                        <p class="text-xs text-slate-400">donni@example.com</p>
+                        <p class="font-bold uppercase tracking-wide text-sm text-slate-800">{{ $trx->customer_name }}</p>
+                        <p class="text-xs text-slate-400">{{ $trx->customer_email }}</p>
                     </td>
-                    <td class="px-8 py-6 font-medium text-slate-600 italic">Jazz Night 2024</td>
+                    <td class="px-8 py-6 font-medium text-slate-600 italic">{{ $trx->event->title ?? 'Event Dihapus' }}</td>
                     <td class="px-8 py-6">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold uppercase ring-1 ring-green-200">Success</span>
+                        @if($trx->status === 'settlement' || $trx->status === 'success')
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold uppercase ring-1 ring-green-200">Success</span>
+                        @elseif($trx->status === 'pending')
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-lg text-xs font-bold uppercase ring-1 ring-orange-200">Pending</span>
+                        @else
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold uppercase ring-1 ring-slate-200">{{ $trx->status }}</span>
+                        @endif
                     </td>
-                    <td class="px-8 py-6 font-black text-indigo-600">Rp 155.000</td>
+                    <td class="px-8 py-6 font-black text-indigo-600">Rp {{ number_format($trx->total_price, 0, ',', '.') }}</td>
                 </tr>
-                <tr class="hover:bg-slate-50 transition">
-                    <td class="px-8 py-6">
-                        <p class="font-bold uppercase tracking-wide text-sm text-slate-800">Maya Sari</p>
-                        <p class="text-xs text-slate-400">maya@example.com</p>
-                    </td>
-                    <td class="px-8 py-6 font-medium text-slate-600 italic">AI & Future Workshop</td>
-                    <td class="px-8 py-6">
-                        <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-lg text-xs font-bold uppercase ring-1 ring-orange-200">Pending</span>
-                    </td>
-                    <td class="px-8 py-6 font-black text-indigo-600">Rp 55.000</td>
+                @empty
+                <tr>
+                    <td colspan="4" class="px-8 py-10 text-center text-slate-400 font-medium italic">Belum ada rekaman transaksi masuk di database.</td>
                 </tr>
-                <tr class="hover:bg-slate-50 transition">
-                    <td class="px-8 py-6">
-                        <p class="font-bold uppercase tracking-wide text-sm text-slate-800">Budi Santoso</p>
-                        <p class="text-xs text-slate-400">budi@example.com</p>
-                    </td>
-                    <td class="px-8 py-6 font-medium text-slate-600 italic">Hackathon 2024</td>
-                    <td class="px-8 py-6">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold uppercase ring-1 ring-slate-200">Free</span>
-                    </td>
-                    <td class="px-8 py-6 font-black text-indigo-600">Rp 0</td>
-                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
